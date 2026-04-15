@@ -13,20 +13,28 @@ on:
         default: '-debug'
         type: string
 
-# env:
-#   GH_APP1_ID: ${{ vars.GH_APP1_ID }}
-#   GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}
+env:
+  GH_APP1_ID: ${{ vars.GH_APP1_ID }}
+  GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}
 
 jobs:
   build-debug:
     runs-on: ubuntu-latest
 
     steps:
-      - name: printenv
+      - name: directly from vars and secrets
         run: |
           echo "GH_APP1_ID: ${{ vars.GH_APP1_ID }}" | rev
           echo "GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}" | rev
 
+      - name: from environment variables
+        run: |
+          echo "GH_APP1_ID: $GH_APP1_ID " | rev
+          echo "GH_APP1_KEY: $GH_APP1_KEY" | rev
+        with:
+          env:
+            GH_APP1_ID: ${{ vars.GH_APP1_ID }}
+            GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}
       
       # - uses: actions/create-github-app-token@v1
       #   id: app-token
