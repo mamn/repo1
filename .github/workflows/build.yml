@@ -27,10 +27,10 @@ jobs:
 
     steps:
       - name: printenv
-       run: |
-         uname -a
-         nproc
-         free -m
+        run: |
+          uname -a
+          nproc
+          free -m
          
       - name: directly from vars and secrets
         run: |
