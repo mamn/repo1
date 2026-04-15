@@ -1,0 +1,69 @@
+name: main
+
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+
+# env:
+#   GH_APP1_ID: ${{ vars.GH_APP1_ID }}
+#   GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}
+
+jobs:
+  build-debug:
+    uses: ./.github/workflows/build.yml
+    with:
+      variant: "-debug"
+      
+    # steps:
+    #   - name: printenv
+    #     run: |
+    #       pwd
+      
+      # - uses: actions/create-github-app-token@v1
+      #   id: app-token
+      #   with:
+      #     app-id: ${{ vars.GH_APP1_ID }}
+      #     private-key: ${{ secrets.GH_APP1_KEY }}
+      #     owner: ${{ github.repository_owner }}
+
+      # - name: Configure Git Authentication
+      #   run: |
+      #     echo ${{ steps.app-token.outputs.token }} | rev
+      #     git config --global url."https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/mamn".insteadOf "https://github.com/mamn"
+      #     git config --global user.email "dxp-build@electrolux.com"
+      #     git config --global user.name "Electrolux Build"
+
+
+      # - name: printenv
+      #   run: |
+      #     pwd
+      #     ls
+      #     python --version
+      #     pip3 list
+
+
+      # - name: Checkout repository
+      #   run: |
+      #     #git clone https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/mamn/repo2  
+      #     git clone https://github.com/mamn/repo2
+
+      #     cd ovcx_evo
+      #     git branch
+      #     git log -1
+
+      # - name: Clean
+      #   run: |
+      #     cd ovcx_evo/Tools/Utilities
+      #     ./build.bat c Debug
+
+      # - name: Build
+      #   run: |
+      #     cd ovcx_evo/Tools/Utilities
+      #     ./build.bat rb Debug
+
+      # - name: List build output
+      #   run: |
+      #     cd ovcx_evo/Debug
+      #     Dir -Recurse  | Select Fullname
