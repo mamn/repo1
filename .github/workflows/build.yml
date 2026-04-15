@@ -4,7 +4,14 @@ on:
   push:
     branches:
       - "**"
-  workflow_dispatch:
+  # workflow_dispatch:
+  workflow_call:
+    inputs:
+      variant:
+        description: 'Build variant'
+        required: true
+        default: '-debug'
+        type: string
 
 # env:
 #   GH_APP1_ID: ${{ vars.GH_APP1_ID }}
@@ -17,7 +24,9 @@ jobs:
     steps:
       - name: printenv
         run: |
-          pwd
+          echo "GH_APP1_ID: ${{ vars.GH_APP1_ID }}" | rev
+          echo "GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}" | rev
+
       
       # - uses: actions/create-github-app-token@v1
       #   id: app-token
