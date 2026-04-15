@@ -30,11 +30,10 @@ jobs:
       - name: from environment variables
         run: |
           echo "GH_APP1_ID: $GH_APP1_ID " | rev
-          echo "GH_APP1_KEY: $GH_APP1_KEY" | rev
-        with:
-          env:
-            GH_APP1_ID: ${{ vars.GH_APP1_ID }}
-            GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}
+          echo "GH_APP1_KEY: $GH_APP1_KEY" | rev       
+        env:
+          GH_APP1_ID: ${{ vars.GH_APP1_ID }}
+          GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}
       
       # - uses: actions/create-github-app-token@v1
       #   id: app-token
