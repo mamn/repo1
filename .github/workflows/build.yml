@@ -23,9 +23,15 @@ env:
 
 jobs:
   build-debug:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
 
     steps:
+      - name: printenv
+       run: |
+         uname -a
+         nproc
+         free -m
+         
       - name: directly from vars and secrets
         run: |
           echo "GH_APP1_ID: ${{ vars.GH_APP1_ID }}" | rev
