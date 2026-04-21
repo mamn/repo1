@@ -6,12 +6,12 @@ on:
       - "**"
   # workflow_dispatch:
   workflow_call:
-    inputs:
-      variant:
-        description: 'Build variant'
-        required: true
-        default: 'debug-z-build-yml'
-        type: string
+    # inputs:
+    #   variant:
+    #     description: 'Build variant'
+    #     required: true
+    #     default: 'debug-z-build-yml'
+    #     type: string
     secrets:
       GH_APP1_KEY:
         description: 'GitHub App private key'
@@ -35,7 +35,7 @@ jobs:
           nproc
           free -m
           id
-          echo "${{ inputs.variant}}"
+          echo "inputs-variant = ${{ inputs.variant }}"
          
       - name: directly from vars and secrets
         run: |
