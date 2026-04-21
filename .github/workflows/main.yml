@@ -17,8 +17,8 @@ on:
 jobs:
   build-debug:
     uses: ./.github/workflows/build.yml
-    with:
-      variant: "-debug"
+    # with:
+    #   variant: "-debug"
     secrets:
       GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}
       
