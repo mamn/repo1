@@ -10,7 +10,7 @@ on:
       variant:
         description: 'Build variant'
         required: true
-        default: '-debug'
+        default: 'debug-z-build-yml'
         type: string
     secrets:
       GH_APP1_KEY:
@@ -35,6 +35,7 @@ jobs:
           nproc
           free -m
           id
+          echo "${{ inputs.variant}}"
          
       - name: directly from vars and secrets
         run: |

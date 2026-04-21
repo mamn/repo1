@@ -5,7 +5,11 @@ on:
     branches:
       - "**"
   workflow_dispatch:
-
+    inputs:
+      variant:
+        description: 'Build variant'
+        required: true
+        default: 'debug-z-main-yml'
 # env:
 #   GH_APP1_ID: ${{ vars.GH_APP1_ID }}
 #   GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}
