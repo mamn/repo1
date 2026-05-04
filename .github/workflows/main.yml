@@ -21,7 +21,14 @@ jobs:
     #   variant: "-debug"
     secrets:
       GH_APP1_KEY: ${{ secrets.GH_APP1_KEY }}
-      
+  zwykly-co:
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+        with:
+          skip-cleanup: true
+
+
     # steps:
     #   - name: printenv
     #     run: |
